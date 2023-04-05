@@ -1,6 +1,7 @@
 const http = require("http");
 const url = require("url");
 const fs = require("fs").promises; // import the promises module from the built-in fs (file system) module
+const bicycles = require("./data/data.json");
 
 const server = http.createServer(async (req, res) => {
   // console.log("Server is now running.")
@@ -41,7 +42,26 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(html);
   } else if (pathname === "/bicycle" && id >= 0 && id <= 5) {
-    const html = await fs.readFile("./view/overview.html", "utf-8");
+    let html = await fs.readFile("./view/overview.html", "utf-8");
+
+    const bicycle = bicycles.find((bike) => bike.id === id);
+    // console.log(bicycle);
+    // // {
+    // //   id: '2',
+    // //   name: 'Hercules Roadeo A50',
+    // //   hasDiscount: true,
+    // //   discount: 40,
+    // //   originalPrice: 1700,
+    // //   image: '2.png',
+    // //   star: 3
+    // // }
+    html = html.replace(/<%IMAGE%>/g, bicycle.image);
+    html = html.replace(/<%NAME%>/g, bicycle.name);
+
+    let price = bicycle.originalPrice;
+    if (bicycle.hasDiscount) price *= (100 - bicycle.discount) / 100;
+    html = html.replace(/<%NEWPRICE%>/g, `$${price}`);
+
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(html);
   } else if (/\.(png)$/i.test(req.url)) {
