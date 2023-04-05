@@ -7,7 +7,7 @@
   margin: 0px;
   padding: 0px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
   background: rgba(245, 241, 241, 0.77);
@@ -30,20 +30,27 @@ body {
 button {
   border: none;
   outline: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-button:focus, button:active {
+button:focus,
+button:active {
   outline: none;
 }
 
 .container {
   width: 100%;
   min-height: 100vh;
-  background: -webkit-gradient(linear, left top, right bottom, from(#6cc05e), to(#28b485));
-  background: -webkit-linear-gradient(left top, #6cc05e, #28b485);
-  background: -o-linear-gradient(left top, #6cc05e, #28b485);
-  background: linear-gradient(to right bottom, #6cc05e, #28b485);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#eb3b5a),
+    to(#45aaf2)
+  );
+  background: -webkit-linear-gradient(left top, #eb3b5a, #45aaf2);
+  background: -o-linear-gradient(left top, #eb3b5a, #45aaf2);
+  background: linear-gradient(to right bottom, #eb3b5a, #45aaf2);
   padding-bottom: 2rem;
 }
 
@@ -54,10 +61,10 @@ nav {
   display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 0.8rem;
-  font-family: 'Rancho', cursive;
+  font-family: "Rancho", cursive;
 }
 
 nav header {
@@ -67,8 +74,8 @@ nav header {
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: white;
   padding-top: 2rem;
   font-size: 5rem;
@@ -83,9 +90,9 @@ nav header {
 
 nav header p {
   -webkit-align-self: center;
-      -ms-flex-item-align: center;
-              -ms-grid-row-align: center;
-          align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   letter-spacing: 1.7px;
 }
 
@@ -94,9 +101,9 @@ nav header p {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-       -o-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   margin: 5rem auto;
   text-align: center;
 }
@@ -106,51 +113,51 @@ nav header p {
   width: 5.5rem;
   fill: #2b2e4a;
   -webkit-transform-origin: 44% 50%;
-      -ms-transform-origin: 44% 50%;
-       -o-transform-origin: 44% 50%;
-          transform-origin: 44% 50%;
+  -ms-transform-origin: 44% 50%;
+  -o-transform-origin: 44% 50%;
+  transform-origin: 44% 50%;
   -webkit-animation: rotate 1.5s infinite linear;
-       -o-animation: rotate 1.5s infinite linear;
-          animation: rotate 1.5s infinite linear;
+  -o-animation: rotate 1.5s infinite linear;
+  animation: rotate 1.5s infinite linear;
 }
 
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0);
-            transform: rotate(0);
+    transform: rotate(0);
   }
   100% {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @-o-keyframes rotate {
   0% {
     -o-transform: rotate(0);
-       transform: rotate(0);
+    transform: rotate(0);
   }
   100% {
     -o-transform: rotate(360deg);
-       transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes rotate {
   0% {
     -webkit-transform: rotate(0);
-         -o-transform: rotate(0);
-            transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
   }
   100% {
     -webkit-transform: rotate(360deg);
-         -o-transform: rotate(360deg);
-            transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 .bicycleShop {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   letter-spacing: 0.3px;
   max-width: 1230px;
   margin: auto;
@@ -161,11 +168,11 @@ nav header p {
   display: flex;
   -webkit-box-pack: space-evenly;
   -webkit-justify-content: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
   -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .bicycleShop .bicycle {
@@ -179,7 +186,7 @@ nav header p {
   background: -o-linear-gradient(305deg, #e6e6e6, #ffffff);
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
   -webkit-box-shadow: 2px 4px 10px #41414198;
-          box-shadow: 2px 4px 10px #41414198;
+  box-shadow: 2px 4px 10px #41414198;
 }
 
 .bicycleShop .bicycle__image {
@@ -226,8 +233,8 @@ nav header p {
   display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .bicycleShop .bicycle__price p:first-child {
@@ -236,9 +243,9 @@ nav header p {
 
 .bicycleShop .bicycle__price p:last-child {
   -webkit-align-self: center;
-      -ms-flex-item-align: center;
-              -ms-grid-row-align: center;
-          align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   font-size: 1.5rem;
   margin-left: 1rem;
   color: gray;
@@ -267,7 +274,7 @@ nav header p {
   background: -o-linear-gradient(305deg, #e6e6e6, #ffffff);
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
   -webkit-box-shadow: 2px 4px 10px #41414198;
-          box-shadow: 2px 4px 10px #41414198;
+  box-shadow: 2px 4px 10px #41414198;
   border-radius: 4px;
   position: relative;
 }
