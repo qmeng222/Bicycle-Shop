@@ -38,7 +38,19 @@ const server = http.createServer(async (req, res) => {
   // // /icons.svg
 
   if (pathname === "/") {
-    const html = await fs.readFile("./view/bicycles.html", "utf-8");
+    let html = await fs.readFile("./view/bicycles.html", "utf-8");
+
+    const allMainBicycles = await fs.readFile(
+      "./view/main/bmain.html",
+      "utf-8"
+    );
+
+    let allBicycles = "";
+    for (let i = 0; i < 6; i++) {
+      allBicycles += allMainBicycles;
+    }
+    html = html.replace(/<%AllMainBicycles%>/g, allBicycles);
+
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(html);
   } else if (pathname === "/bicycle" && id >= 0 && id <= 5) {
