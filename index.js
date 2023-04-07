@@ -47,7 +47,7 @@ const server = http.createServer(async (req, res) => {
 
     let allBicycles = "";
     for (let i = 0; i < 6; i++) {
-      allBicycles += allMainBicycles;
+      allBicycles += replaceTemplate(allMainBicycles, bicycles[i]);
     }
     html = html.replace(/<%AllMainBicycles%>/g, allBicycles);
 
@@ -55,7 +55,6 @@ const server = http.createServer(async (req, res) => {
     res.end(html);
   } else if (pathname === "/bicycle" && id >= 0 && id <= 5) {
     let html = await fs.readFile("./view/overview.html", "utf-8");
-
     const bicycle = bicycles.find((bike) => bike.id === id);
     // console.log(bicycle);
     // // {
@@ -67,12 +66,7 @@ const server = http.createServer(async (req, res) => {
     // //   image: '2.png',
     // //   star: 3
     // // }
-    html = html.replace(/<%IMAGE%>/g, bicycle.image);
-    html = html.replace(/<%NAME%>/g, bicycle.name);
-
-    let price = bicycle.originalPrice;
-    if (bicycle.hasDiscount) price *= (100 - bicycle.discount) / 100;
-    html = html.replace(/<%NEWPRICE%>/g, `$${price}`);
+    html = replaceTemplate(html, bicycle);
 
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(html);
@@ -95,3 +89,31 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(3000);
+
+function replaceTemplate(html, bicycle) {
+  html = html.replace(/<%IMAGE%>/g, bicycle.image);
+  html = html.replace(/<%NAME%>/g, bicycle.name);
+
+  let price = bicycle.originalPrice;
+  if (bicycle.hasDiscount) price *= (100 - bicycle.discount) / 100;
+  html = html.replace(/<%NEWPRICE%>/g, `$${price}.00`);
+  html = html.replace(/<%OLDPRICE%>/g, `$${bicycle.originalPrice}`);
+  html = html.replace(/<%ID%>/g, bicycle.id);
+
+  if (bicycle.hasDiscount) {
+    html = html.replace(
+      /<%DISCOUNTRATE%>/g,
+      `<div class="discount__rate"><p>${bicycle.discount}% Off</p></div>;`
+    );
+  } else {
+    html = html.replace(/<%DISCOUNTRATE%>/g, ``);
+  }
+
+  // star ratings:
+  for (let i = 0; i < bicycle.star; i++) {
+    html = html.replace(/<%STAR%>/, "checked");
+  }
+  html = html.replace(/<%STAR%>/g, "");
+
+  return html;
+}
