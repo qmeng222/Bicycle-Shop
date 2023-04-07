@@ -1,8 +1,12 @@
 # Bicycle Shop
 
-## About:
+## Overview:
 
 Get your bicycle shop up and running quickly with this customizable Node.js-based solution which allows users to browse through a catalog of bicycles with product descriptions, prices, and star ratings.
+
+<br>
+
+![Project Overview](/project-overview.gif)
 
 <br>
 
